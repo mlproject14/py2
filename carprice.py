@@ -15,8 +15,10 @@ def main():
     fuel_types = car['fuel_type'].unique()
 
     companies.insert(0, 'Select Company')
-
-    st.markdown("<h1 style='text-align: center;'>Car Price Predictor</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<center><h1 style='font-family: Comic Sans MS; font-weight: 300; font-size: 32px;'>Old Car Price "
+        "Prediction</h1></center>",
+        unsafe_allow_html=True)
 
     company = st.selectbox("Company", companies)
     selected_company_models = car_models if company == 'Select Company' else sorted(
@@ -44,7 +46,7 @@ def main():
                                                                            selected_fuel_type]).reshape(1, 5)))
                     multiplied_prediction = prediction[0] * 2.9
                     rounded_prediction = round(multiplied_prediction, 2)
-                    st.success("Predicted Price:  {:.2f} BDT".format(rounded_prediction))
+                    st.success("Predicted Price: **{:.2f} BDT**".format(rounded_prediction))
 
 if __name__ == "__main__":
     main()
